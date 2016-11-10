@@ -1,0 +1,26 @@
+From 5861817bb21f6f7174067aac09184657f4e8f60f Mon Sep 17 00:00:00 2001
+From: Robert Nelson <robertcnelson@gmail.com>
+Date: Thu, 10 Nov 2016 15:36:06 -0600
+Subject: [PATCH] debian: -fno-PIE
+
+Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
+---
+ src/cmem/module/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/cmem/module/Makefile b/src/cmem/module/Makefile
+index d4eaf18..22ad612 100644
+--- a/src/cmem/module/Makefile
++++ b/src/cmem/module/Makefile
+@@ -11,7 +11,7 @@ TARGET = cmemk.ko
+ 
+ obj-m += cmemk.o
+ 
+-EXTRA_CFLAGS +=	-I$(ABS_ROOTDIR)/include
++EXTRA_CFLAGS +=	-I$(ABS_ROOTDIR)/include -fno-PIE
+ 
+ MAKE_ENV = ARCH=$(ARCH) CROSS_COMPILE=$(TOOLCHAIN_PREFIX)
+ 
+-- 
+2.10.2
+
