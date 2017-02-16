@@ -1,13 +1,14 @@
 #!/bin/bash
 
 ARCH=$(uname -m)
-branch="4.12.00.00"
+branch="4.14.00.00.eng"
 
 if [ -f .builddir ] ; then
 	if [ -d ./src ] ; then
 		rm -rf ./src || true
 	fi
 
+	#http://git.ti.com/gitweb/?p=ipc/ludev.git;a=summary
 	git clone -b ${branch} git://git.ti.com/ipc/ludev.git ./src --depth=1
 	cd ./src/
 	patch -p1 < ../../0001-debian-fno-PIE.patch
