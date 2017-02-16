@@ -13,13 +13,14 @@ if [ -f .builddir ] ; then
 	patch -p1 < ../../0001-debian-fno-PIE.patch
 	cd ../
 
-	x86_dir="/opt/github/bb.org/ti-4.4/normal"
-	x86_compiler="gcc-linaro-4.9-2016.02-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-"
-
 	if [ "x${ARCH}" = "xarmv7l" ] ; then
 		make_options="TOOLCHAIN_PREFIX= KERNEL_INSTALL_DIR=/build/buildd/linux-src release"
 	else
-		make_options="TOOLCHAIN_PREFIX=/home/voodoo/dl/gcc/${x86_compiler} KERNEL_INSTALL_DIR=${x86_dir}/KERNEL release"
+		x86_dir="`pwd`/../../normal"
+		if [ -f `pwd`/../../normal/.CC ] ; then
+			. `pwd`/../../normal/.CC
+			make_options="TOOLCHAIN_PREFIX=${CC} KERNEL_INSTALL_DIR=${x86_dir}/KERNEL release"
+		fi
 	fi
 
 	cd ./src/src/cmem/module/
