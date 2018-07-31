@@ -7,8 +7,8 @@ if [ "x${ARCH}" = "xarmv7l" ] ; then
 	distro="DISTRO"
 	dpkg_arch="armhf"
 else
-	uname_r="4.4.27-ti-r59.5"
-	distro="jessie"
+	uname_r="4.14.58-ti-r65"
+	distro="stretch"
 	dpkg_arch="amd64"
 fi
 

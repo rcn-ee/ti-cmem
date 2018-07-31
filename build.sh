@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ARCH=$(uname -m)
-branch="4.14.00.00.eng"
+branch="4.15.00.01"
 
 if [ -f .builddir ] ; then
 	if [ -d ./src ] ; then
