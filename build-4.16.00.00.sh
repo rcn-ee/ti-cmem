@@ -9,7 +9,7 @@ if [ -f .builddir ] ; then
 	fi
 
 	#http://git.ti.com/gitweb/?p=ipc/ludev.git;a=summary
-	git clone -b ${branch} git://git.ti.com/ipc/ludev.git ./src --depth=1
+	git clone -b ${branch} https://github.com/rcn-ee/ipc-ludev ./src --depth=1
 	cd ./src/
 	patch -p1 < ../../0001-debian-fno-PIE.patch
 	cd ../
